@@ -4,6 +4,7 @@ from senaite.core.listing.interfaces import IListingViewAdapter
 from zope.component import adapts
 from zope.interface import implements
 
+
 class IlaraSamplesReportsAdapter(object):
     adapts(IListingView)
     implements(IListingViewAdapter)
@@ -29,30 +30,29 @@ class IlaraSamplesReportsAdapter(object):
         # self.listing.review_states.append(draft_status)
 
         # Add the column
-        self.listing.columns['sms_report'] = {
-            'title': 'SMS Report',
-            'sortable': False,
-            'toggle': True,
+        self.listing.columns["sms_report"] = {
+            "title": "SMS Report",
+            "sortable": False,
+            "toggle": True,
         }
 
         # Make the new column visible for only published results
         for filter in self.listing.review_states:
             filter.update({"columns": self.listing.columns.keys()})
             # if filter.get("id") == "published":
-                
 
     def folder_item(self, obj, item, index):
         # base_url = 'http://localhost:8081/'
-        base_url = 'http://35.190.90.81/'
+        base_url = "http://35.190.90.81/"
 
         sample = api.get_object(obj)
         ar = sample.getAnalysisRequest()
         doctor_url = sample.getContactURL()
-        host = doctor_url.split('/')[1]
+        host = doctor_url.split("/")[1]
         # logger.info('Host: {0}'.format(host))
 
-        if host == 'riverside':
-            query_url = base_url+'smspublish?sampleid='+ar.Title()
-            item['sms_report'] = "<a href='%s' target='_blank'>Send SMS</a>" % query_url
-            
+        if host == "riverside":
+            query_url = base_url + "smspublish?sampleid=" + ar.Title()
+            item["sms_report"] = "<a href='%s' target='_blank'>Send SMS</a>" % query_url
+
         return item

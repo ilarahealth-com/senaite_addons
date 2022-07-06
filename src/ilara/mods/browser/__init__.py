@@ -3,4 +3,4 @@
 from zope.i18nmessageid import MessageFactory
 
 
-_ = MessageFactory('ilara.mods')
+_ = MessageFactory("ilara.mods")

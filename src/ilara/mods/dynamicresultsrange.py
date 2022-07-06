@@ -5,7 +5,6 @@ from zope.interface import implementer
 
 @implementer(IDynamicResultsRange)
 class DynamicResultsRange(object):
-
     def __init__(self, analysis):
         self.analysis = analysis
 

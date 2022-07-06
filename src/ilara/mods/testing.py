@@ -21,7 +21,7 @@ class IlaraModsLayer(PloneSandboxLayer):
         self.loadZCML(package=ilara.mods)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'ilara.mods:default')
+        applyProfile(portal, "ilara.mods:default")
 
 
 ILARA_MODS_FIXTURE = IlaraModsLayer()
@@ -29,13 +29,13 @@ ILARA_MODS_FIXTURE = IlaraModsLayer()
 
 ILARA_MODS_INTEGRATION_TESTING = IntegrationTesting(
     bases=(ILARA_MODS_FIXTURE,),
-    name='IlaraModsLayer:IntegrationTesting',
+    name="IlaraModsLayer:IntegrationTesting",
 )
 
 
 ILARA_MODS_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(ILARA_MODS_FIXTURE,),
-    name='IlaraModsLayer:FunctionalTesting',
+    name="IlaraModsLayer:FunctionalTesting",
 )
 
 
@@ -45,5 +45,5 @@ ILARA_MODS_ACCEPTANCE_TESTING = FunctionalTesting(
         REMOTE_LIBRARY_BUNDLE_FIXTURE,
         z2.ZSERVER_FIXTURE,
     ),
-    name='IlaraModsLayer:AcceptanceTesting',
+    name="IlaraModsLayer:AcceptanceTesting",
 )
